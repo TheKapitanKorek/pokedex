@@ -1,0 +1,328 @@
+body {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+:root {
+  --dark-gray: #635f5f;
+  --gray: #999999;
+  --light-gray: #d3d3d3;
+  --main-lignt: #ff7070;
+  --main: #c00707;
+  --main-dark: #7e0000;
+  --black-like: #1e1e1e;
+}
+#app {
+  background-color: var(--dark-gray);
+  width: 100vw;
+  height: 100vh;
+}
+#pokedex {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--dark-gray);
+  justify-content: center;
+  align-items: center;
+}
+.side {
+  box-sizing: border-box;
+  border: 5px solid var(--black-like);
+  width: 45vw;
+  height: 95vh;
+}
+/* _______ HINGES _____*/
+.middle_bar {
+  box-sizing: border-box;
+  height: 95vh;
+  width: 5vw;
+}
+#hinges {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+}
+.hinge {
+  box-sizing: border-box;
+  border: 2px solid black;
+  width: 100%;
+  height: 10%;
+}
+.long {
+  height: 50%;
+}
+.odd {
+  background: linear-gradient(
+    90deg,
+    var(--main-dark),
+    var(--main-lignt),
+    var(--main-dark)
+  );
+}
+.eaven {
+  background: linear-gradient(
+    90deg,
+    var(--main),
+    var(--main-lignt),
+    var(--main)
+  );
+}
+
+/**************HEADERS**************/
+/*________LEFT SITE________*/
+#header_left {
+  box-sizing: border-box;
+  width: 100%;
+  height: 20%;
+  background-color: var(--main);
+}
+.l_left {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100%;
+  width: 50%;
+  background-color: var(--main-dark);
+  border-radius: 0 0 5vh 0;
+}
+.l_right {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100%;
+  width: 50%;
+  background-color: var(--main-dark);
+}
+.l_curve {
+  position: relative;
+  top: 50%;
+  height: 50%;
+  width: 100%;
+  background-color: var(--main);
+  border-radius: 5vh 0 0 0;
+}
+/**************HEADERS**************/
+/*________RIGHT SITE________*/
+#header_right {
+  box-sizing: border-box;
+  width: 100%;
+  height: 20%;
+  background-color: var(--main);
+}
+.r_left {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100%;
+  width: 50%;
+  background-color: var(--dark-gray);
+}
+.r_right {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100%;
+  width: 50%;
+  background-color: var(--dark-gray);
+  border-radius: 0 0 0 5vh;
+}
+.r_curve {
+  position: relative;
+  top: 50%;
+  height: 50%;
+  width: 100%;
+  background-color: var(--main);
+  border-radius: 0 5vh 0 0;
+}
+/**************CONTENT**************/
+/*________LEFT SITE________*/
+#page_left {
+  box-sizing: border-box;
+  width: 100%;
+  height: 80%;
+  background-color: var(--main);
+}
+.screen_panel {
+  display: inline-block;
+  width: 95%;
+  height: 95%;
+  background-color: var(--gray);
+  margin: 2.5%;
+  border-radius: 3vh;
+}
+#screen_left {
+  display: inline-block;
+  width: 95%;
+  height: 75%;
+  background-color: white;
+  margin: 2.5%;
+  border-radius: 3vh;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 95%;
+  height: 18%;
+  margin: 0 2.5%;
+}
+/*Power Button*/
+.power {
+  margin: 2% 2%;
+  display: inline-block;
+  width: 12%;
+}
+.power .circle {
+  position: relative;
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+  background: radial-gradient(#ff0101, #ce0000);
+  border: 2px solid var(--black-like);
+}
+.switch_button {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 40%;
+  width: 10%;
+  background-color: var(--gray);
+  border: 3px solid var(--black-like);
+  border-radius: 2vh;
+}
+.ventilation {
+  display: flex;
+  width: 30%;
+  height: 40%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.row {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.ventil_hole {
+  background-color: var(--black-like);
+  width: 20%;
+  height: 100%;
+}
+/**************CONTENT**************/
+/*________RIGHT SITE________*/
+#page_right {
+  box-sizing: border-box;
+  width: 100%;
+  height: 80%;
+  background-color: var(--main);
+}
+.filter_panel {
+  height: 12%;
+  width: 100%;
+}
+#search_form {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+#shared {
+  display: inline-block;
+  width: 50%;
+  border-radius: 3vh;
+}
+#poke_name {
+  background-color: var(--light-gray);
+  border: 3px solid var(--black-like);
+  display: inline-block;
+  box-sizing: border-box;
+  width: 70%;
+  line-height: 250%;
+  border-radius: 3vh 0 0 3vh;
+  text-align: center;
+}
+#search_button {
+  border: 3px solid var(--black-like);
+  background-color: var(--gray);
+  display: inline-block;
+  box-sizing: border-box;
+  width: 30%;
+  line-height: 250%;
+  border-radius: 0 3vh 3vh 0;
+  cursor: pointer;
+}
+
+#poke_types {
+  border: 3px solid var(--black-like);
+  background-color: var(--gray);
+  height: 60%;
+  width: 30%;
+  border-radius: 3vh;
+  text-indent: 10px;
+  cursor: pointer;
+}
+/*---------*/
+#results {
+  width: 95%;
+  height: 80%;
+  background-color: white;
+  margin: 2.5%;
+  border-radius: 5vh;
+  overflow: hidden;
+  border: 5px solid var(--black-like);
+  box-sizing: border-box;
+}
+.navigation {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  background-color: var(--gray);
+  box-sizing: border-box;
+}
+.records {
+  display: flex;
+  width: 100%;
+  height: 90%;
+  background-color: var(--gray);
+  box-sizing: border-box;
+}
+.record {
+  display: flex;
+  width: 100%;
+  height: 8%;
+  background-color: var(--light-gray);
+  box-sizing: border-box;
+}
+.sort {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  border: 2px solid var(--black-like);
+  height: 100%;
+}
+.rec {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  border: 2px solid var(--black-like);
+  height: 100%;
+}
+.id {
+  width: 15%;
+}
+.name {
+  width: 35%;
+}
+.type {
+  width: 25%;
+}
+.weight {
+  width: 25%;
+}
