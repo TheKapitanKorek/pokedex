@@ -1,7 +1,9 @@
 body {
+  font-family: "VT323", monospace;
   padding: 0;
   border: 0;
   margin: 0;
+  font-size: calc(0.5vh + 1vw);
 }
 :root {
   --dark-gray: #635f5f;
@@ -17,6 +19,9 @@ body {
   width: 100vw;
   height: 100vh;
 }
+::-webkit-scrollbar {
+  width: 0;
+}
 #pokedex {
   box-sizing: border-box;
   width: 100vw;
@@ -27,9 +32,14 @@ body {
   justify-content: center;
   align-items: center;
 }
+#off {
+  border-radius: 3vh;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-like);
+}
 .side {
   box-sizing: border-box;
-  border: 5px solid var(--black-like);
   width: 45vw;
   height: 95vh;
 }
@@ -87,6 +97,7 @@ body {
   width: 50%;
   background-color: var(--main-dark);
   border-radius: 0 0 5vh 0;
+  border-bottom: 4px solid var(--black-like);
 }
 .l_right {
   display: inline-block;
@@ -102,6 +113,38 @@ body {
   width: 100%;
   background-color: var(--main);
   border-radius: 5vh 0 0 0;
+}
+.diods {
+  position: absolute;
+  display: flex;
+  width: 20%;
+  height: 15%;
+  margin-top: 1%;
+}
+.big {
+  margin-left: 10%;
+  height: calc(5vh + 3vw);
+  width: calc(5vh + 3vw);
+  border: 3px solid white;
+  border-radius: 50%;
+  background: radial-gradient(#4da29f, #507675);
+}
+.small {
+  box-sizing: border-box;
+  margin: 0 1%;
+  height: calc(2vh + 1vw);
+  width: calc(2vh + 1vw);
+  border: 4px solid var(--black-like);
+  border-radius: 50%;
+}
+.red {
+  background: radial-gradient(#d95252, #ff0000);
+}
+.yellow {
+  background: radial-gradient(#d9cc52, #f7ff00);
+}
+.green {
+  background: radial-gradient(#64d952, #34ff00);
 }
 /**************HEADERS**************/
 /*________RIGHT SITE________*/
@@ -134,6 +177,7 @@ body {
   background-color: var(--main);
   border-radius: 0 5vh 0 0;
 }
+
 /**************CONTENT**************/
 /*________LEFT SITE________*/
 #page_left {
@@ -170,23 +214,26 @@ body {
 .power {
   margin: 2% 2%;
   display: inline-block;
-  width: 12%;
+  height: calc(5vh + 3vw);
+  width: calc(5vh + 3vw);
 }
 .power .circle {
   position: relative;
   border-radius: 50%;
   width: 100%;
-  height: auto;
-  padding-top: 100%;
+  height: 100%;
   background: radial-gradient(#ff0101, #ce0000);
   border: 2px solid var(--black-like);
+}
+.power_icon {
+  width: 70%;
 }
 .switch_button {
   box-sizing: border-box;
   display: inline-block;
   height: 40%;
   width: 10%;
-  background-color: var(--gray);
+  background-color: var(--dark-gray);
   border: 3px solid var(--black-like);
   border-radius: 2vh;
 }
@@ -197,6 +244,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+/*pokemon avatar stuff*/
 .row {
   width: 100%;
   height: 20%;
@@ -208,6 +256,95 @@ body {
   background-color: var(--black-like);
   width: 20%;
   height: 100%;
+}
+#poke_panel {
+  width: 100%;
+  height: 100%;
+}
+#head {
+  margin-top: 2.5%;
+  width: 100%;
+  height: 10%;
+  text-indent: 10%;
+}
+.nm {
+  font-size: 1.5em;
+}
+.wg {
+  font-size: 0.9em;
+  text-align: center;
+}
+.fifty {
+  width: 45%;
+  box-sizing: border-box;
+  display: inline-block;
+}
+#upper_section {
+  display: flex;
+  width: 95%;
+  height: 60%;
+  margin: 0% 2.5% 2.5% 2.5%;
+}
+#position_box {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 80%;
+  width: 50%;
+  border: 3px solid var(--black-like);
+  border-radius: 20%;
+}
+.img_box {
+  height: 100%;
+  overflow: hidden;
+}
+.avatar {
+  display: inline-block;
+  margin-left: 10%;
+  width: 80%;
+  height: auto;
+  background: transparent;
+}
+.abl_title {
+  box-sizing: border-box;
+  font-size: 1.4em;
+  width: 100%;
+  text-align: center;
+  border-bottom: 3px solid var(--black-like);
+}
+#stats {
+  box-sizing: border-box;
+  width: 50%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.stat {
+  text-align: center;
+  box-sizing: border-box;
+  height: 10%;
+  width: 70%;
+  border-bottom: 3px solid var(--black-like);
+}
+#abilities {
+  width: 95%;
+  height: 20%;
+  margin: 2.5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.ability {
+  font-size: 1.2em;
+  line-height: 150%;
+  text-align: center;
+  width: 40%;
+  height: 30%;
+  border-bottom: 3px solid var(--dark-gray);
+  margin: 10px;
 }
 /**************CONTENT**************/
 /*________RIGHT SITE________*/
@@ -256,6 +393,7 @@ body {
 }
 
 #poke_types {
+  overflow-y: scroll;
   border: 3px solid var(--black-like);
   background-color: var(--gray);
   height: 60%;
@@ -283,7 +421,9 @@ body {
   box-sizing: border-box;
 }
 .records {
+  overflow-y: scroll;
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 90%;
   background-color: var(--gray);
@@ -291,8 +431,9 @@ body {
 }
 .record {
   display: flex;
+  flex-direction: row;
   width: 100%;
-  height: 8%;
+  height: 4vh;
   background-color: var(--light-gray);
   box-sizing: border-box;
 }
@@ -314,15 +455,98 @@ body {
   border: 2px solid var(--black-like);
   height: 100%;
 }
-.id {
-  width: 15%;
-}
 .name {
-  width: 35%;
+  width: 100%;
 }
-.type {
-  width: 25%;
+@media only screen and (max-device-width: 667px) {
+  #pokedex {
+    flex-direction: column;
+  }
+  .side {
+    width: 95vw;
+    height: 45vh;
+  }
+  .middle_bar {
+    height: 4vh;
+    width: 95vw;
+  }
+  #hinges {
+    flex-direction: row;
+  }
+  .hinge {
+    width: 10%;
+    height: 100%;
+  }
+  .long {
+    height: 100;
+    width: 50%;
+  }
+  .odd {
+    background: linear-gradient(
+      0deg,
+      var(--main-dark),
+      var(--main-lignt),
+      var(--main-dark)
+    );
+  }
+  .eaven {
+    background: linear-gradient(
+      0deg,
+      var(--main),
+      var(--main-lignt),
+      var(--main)
+    );
+  }
+  #header_right {
+    display: none;
+    background-color: var(--main-dark);
+  }
+  .l_curve {
+    background-color: var(--main-dark);
+  }
+  .l_left {
+    border-radius: 0;
+  }
+  .buttons {
+    margin: -2% 2.5%;
+  }
+  .power {
+    width: 8%;
+    margin: 0;
+  }
+  #position_box {
+    width: 30%;
+    margin: 0 10%;
+  }
+  .img_box {
+    margin-bottom: 4%;
+  }
+  .avatar {
+    margin-top: -10%;
+  }
+  #abilities {
+    margin-top: -3%;
+    justify-content: space-around;
+  }
+  .ability {
+    line-height: 100%;
+    width: 20%;
+  }
+  .stat {
+    line-height: 100%;
+    border-bottom: 2px solid var(--black-like);
+    height: 15%;
+  }
 }
-.weight {
-  width: 25%;
+@media only screen and (max-device-width: 420px) {
+  #position_box {
+    width: 50%;
+    margin: 0;
+  }
+  .img_box {
+    margin-bottom: 4%;
+  }
+  .avatar {
+    margin-top: -10%;
+  }
 }

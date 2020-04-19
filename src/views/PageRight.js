@@ -1,9 +1,46 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const PageRight = () => {
+const PageRight = (props) => {
   const [name, setName] = useState("");
   const [type, setType] = useState("");
+  const [pokeList, setPokeList] = useState([]);
+
+  const setPokemon = async (pokeName) => {
+    const { data } = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon/${pokeName}`
+    );
+    const pokemon = {
+      name: data.name,
+      image: data.sprites.front_default,
+      weight: data.weight,
+      stats: data.stats,
+      abilities: data.abilities,
+    };
+    props.loadPokemon(pokemon);
+  };
+
+  const renderRecord = (item) => {
+    return (
+      <div className="record">
+        <button
+          className="name rec"
+          id={item.pokemon.name}
+          onClick={async (e) => {
+            setPokemon(e.target.id);
+          }}
+        >
+          {item.pokemon.name}
+        </button>
+      </div>
+    );
+  };
+
+  const createRecordList = (arr) => {
+    return arr.map((el) => {
+      return renderRecord(el);
+    });
+  };
 
   return (
     <div id="page_right">
@@ -13,18 +50,15 @@ const PageRight = () => {
           onSubmit={async (e) => {
             e.preventDefault();
             if (name) {
-              const response = await axios.get(
-                `https://pokeapi.co/api/v2/pokemon/${name}`
-              );
-              console.log(response);
+              setPokemon(name);
             } else if (type) {
               const response = await axios.get(
                 `https://pokeapi.co/api/v2/type/${type}`
               );
-              console.log(response);
-            } else {
-              console.log("type in pokemon name");
+              const pokemons = response.data.pokemon;
+              setPokeList(pokemons);
             }
+            setName("");
           }}
         >
           <div id="shared">
@@ -32,6 +66,7 @@ const PageRight = () => {
               type="text"
               placeholder="Quick Search"
               id="poke_name"
+              value={name}
               onChange={(e) => {
                 setName(e.target.value);
               }}
@@ -47,34 +82,36 @@ const PageRight = () => {
               setType(e.target.value);
             }}
           >
-            <option value="grass">Grass</option>
+            <option value="normal">Normal</option>
+            <option value="fighting">Fighting</option>
+            <option value="flying">Fyling</option>
+            <option value="poison">Poison</option>
+            <option value="ground">Ground</option>
+            <option value="rock">Rock</option>
+            <option value="bug">Bug</option>
+            <option value="ghost">Ghost</option>
+            <option value="steel">Steel</option>
             <option value="fire">Fire</option>
+            <option value="water">Water</option>
+            <option value="grass">Grass</option>
+            <option value="electric">Electric</option>
+            <option value="psychic">Psychic</option>
+            <option value="ice">Ice</option>
+            <option value="dragon">Dragon</option>
+            <option value="dark">Dark</option>
+            <option value="fairy">Fairy</option>
+            <option value="unknown">Unknown</option>
+            <option value="shadow">Shadow</option>
           </select>
         </form>
       </div>
       <div id="results">
         <div class="navigation">
-          <div class="id sort">
-            Id<button className="sort_btn">▼</button>
-          </div>
           <div class="name sort">
             Name <button className="sort_btn">▼</button>
           </div>
-          <div class="type sort">
-            Type <button className="sort_btn">▼</button>
-          </div>
-          <div class="weight sort">
-            Weight <button className="sort_btn">▼</button>
-          </div>
         </div>
-        <div className="records">
-          <div className="record">
-            <div className="id rec">32</div>
-            <div className="name rec">Bulbasaur</div>
-            <div className="type rec">Grass</div>
-            <div className="weight rec">123</div>
-          </div>
-        </div>
+        <div className="records">{createRecordList(pokeList)}</div>
       </div>
     </div>
   );
